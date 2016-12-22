@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<affiche city="Minsk" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns="http://www.htp.by" xsi:schemaLocation="http://www.htp.by/AfficheXMLSchema3.xsd">
+	<events>
+		<movie type="Movie">
+			<title>Movie1</title>
+			<date>19-11-2016</date>
+			<time>12:20</time>
+			<place>Мир</place>
+			<price>4.5</price>
+			<genre>horror</genre>
+			<rating>16</rating>
+		</movie>
+		<opera type="Opera">
+			<title>Opera</title>
+			<date>20-11-2016</date>
+			<time>18:00</time>
+			<place>Театр оперы и балета</place>
+			<price>20.5</price>
+			<singer>Вася</singer>
+		</opera>
+		<exhibition type="Exhibition">
+			<title>Exhibition#1</title>
+			<date>22-11-2016</date>
+			<time>14:00</time>
+			<place>Холл Дворца республики</place>
+			<price>5.5</price>
+			<theme>BY</theme>
+			<author>А.Г.</author>
+		</exhibition>
+	</events>
+</affiche>
+

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- <schema xmlns="http://www.w3.org/2001/XMLSchema" targetNamespace="http://www.example.org/affiche" 
+	xmlns:tns="http://www.example.org/affiche" elementFormDefault="qualified"> 
+	<element name="affiche" type="affichetype" /> <complexType name="affichetype"> 
+	<sequence> <element name="events" type="eventstype" /> </sequence> </complexType> 
+	<complexType name="eventstype"> <sequence> <element name="event" type="eventtype" 
+	/> </sequence> </complexType> <complexType name="eventtype"> <attribute name="type" 
+	type="string" use="required" /> <sequence> <element name="title" type="string" 
+	/> <element name="date" type="Date" /> <element name="time" type="string" 
+	/> <element name="place" type="string" /> <element name="price" type="decimal" 
+	/> <element name="genre"> <complexType> <simpleType> <restriction base="string"> 
+	<enumeration value="drama" /> <enumeration value="horror" /> <enumeration 
+	value="comedy" /> </restriction> </simpleType> </complexType> </element> 
+	<element name="rating" type="double" /> <element name="singer" type="string" 
+	/> <element name="theme" type="string" /> <element name="author" type="string" 
+	/> </sequence> </complexType> </schema> -->
+<!-- <?xml version="1.0" encoding="UTF-8"?> -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://www.htp.by"
+	targetNamespace="http://www.htp.by" elementFormDefault="qualified">
+	<xs:element name="affiche" type="afficheType" />
+	<xs:element name="events" type="eventsType" />
+	<xs:element name="event" type="eventType" />
+	<xs:complexType name="afficheType">
+		<xs:sequence>
+			<xs:element name="events" type="eventsType" />
+		</xs:sequence>
+		<xs:attribute name="city" type="xs:string" use="required" />
+	</xs:complexType>
+	<xs:complexType name="eventsType">
+		<xs:choice minOccurs="0" maxOccurs="unbounded">
+			<xs:element name="film" type="eventFilm" maxOccurs="unbounded" />
+			<xs:element name="opera" type="eventOpera" maxOccurs="unbounded" />
+			<xs:element name="exsibition" type="eventExsibition"
+				maxOccurs="unbounded" />
+		</xs:choice>
+	</xs:complexType>
+	<xs:complexType name="eventType">
+		<xs:sequence>
+			<xs:element name="title" type="xs:string" />
+			<xs:element name="date" type="xs:date" />
+			<xs:element name="time" type="xs:time" />
+			<xs:element name="place" type="xs:string" />
+			<xs:element name="price" type="xs:double" />
+		</xs:sequence>
+	</xs:complexType>
+	<xs:complexType name="eventFilm">
+		<xs:complexContent>
+			<xs:extension base="eventType">
+				<xs:sequence>
+					<xs:element name="genre">
+						<xs:simpleType>
+							<xs:restriction base="xs:string">
+								<xs:enumeration value="drama" />
+								<xs:enumeration value="horor" />
+								<xs:enumeration value="comedy" />
+							</xs:restriction>
+						</xs:simpleType>
+					</xs:element>
+					<xs:element name="rating" type="xs:double" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="eventOpera">
+		<xs:complexContent>
+			<xs:extension base="eventType">
+				<xs:sequence>
+					<xs:element name="singer" type="xs:string" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+	<xs:complexType name="eventExsibition">
+		<xs:complexContent>
+			<xs:extension base="eventType">
+				<xs:sequence>
+					<xs:element name="theme" type="xs:string" />
+					<xs:element name="author" type="xs:string" />
+				</xs:sequence>
+			</xs:extension>
+		</xs:complexContent>
+	</xs:complexType>
+</xs:schema>
